@@ -62,6 +62,8 @@ echo "PUBLIC_KEY的值为:$PUBLIC_KEY" > /etc/sing-box/PUBLIC_KEY.txt
 
 sudo systemctl enable sing-box
 sudo systemctl restart sing-box 
+KZSF=$(sysctl net.ipv4.tcp_congestion_control)
+echo "当前拥塞控制算法$KZSF"
 
 # 写入 TCP 拥塞控制算法 BBR
 #echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee -a /etc/sysctl.conf
